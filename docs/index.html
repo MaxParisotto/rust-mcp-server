@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rust MCP Server Documentation</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3 { color: #333; }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    code { font-family: monospace; background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Rust MCP Server Documentation</h1>
+  <p>This is a Model Context Protocol (MCP) server for Rust code analysis and assistance.</p>
+  
+  <h2>API Endpoints</h2>
+  <ul>
+    <li><code>/version</code> - Get server version information</li>
+    <li><code>/schema</code> - Get the MCP schema with tools and resources</li>
+    <li><code>/health</code> - Health check endpoint</li>
+    <li><code>/ping</code> - Simple ping endpoint</li>
+  </ul>
+  
+  <h2>WebSocket API</h2>
+  <p>Connect to the WebSocket endpoint at the root URL to interact with the MCP protocol.</p>
+  
+  <h3>Message Types</h3>
+  <ul>
+    <li><code>mcp.schema</code> - Get the schema</li>
+    <li><code>rust.analyze</code> - Analyze Rust code</li>
+    <li><code>rust.suggest</code> - Get code suggestions</li>
+    <li><code>rust.explain</code> - Get explanations for code</li>
+  </ul>
+  
+  <h2>Example Usage</h2>
+  <pre>
+// Connect to WebSocket
+const ws = new WebSocket('ws://localhost:3000');
+
+// When connected, send a request
+ws.onopen = () => {
+  ws.send(JSON.stringify({
+    type: 'rust.analyze',
+    data: {
+      code: 'fn main() { println!("Hello, world!"); }',
+      fileName: 'example.rs'
+    }
+  }));
+};
+
+// Handle response
+ws.onmessage = (event) => {
+  const response = JSON.parse(event.data);
+  console.log(response);
+};
+  </pre>
+  
+  <p>See the <a href="/schema">schema</a> for full documentation of available tools and resources.</p>
+</body>
+</html>
+  

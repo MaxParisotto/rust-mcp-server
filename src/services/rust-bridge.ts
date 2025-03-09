@@ -1,75 +1,63 @@
-import { spawn } from 'child_process';
-import { RustAnalysisRequest, RustAnalysisResponse, Diagnostic, Suggestion } from '../protocols/mcp';
-import path from 'path';
+/**
+ * Bridge to the Rust binary for code analysis
+ */
+
+import { RustAnalysisRequest, RustAnalysisResponse, Diagnostic, Suggestion } from '../protocols/mcp.js';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+
+const execPromise = promisify(exec);
 
 /**
- * Bridge to communicate with the Rust analyzer implementation
+ * Rust Bridge to interface with the Rust analysis binary
  */
 export class RustBridge {
   private binaryPath: string;
-  
-  constructor() {
-    // Path is relative to where the server will be run from
-    this.binaryPath = path.resolve('./rust-bridge/target/release/analyze');
+
+  /**
+   * Create a new Rust Bridge
+   * @param binaryPath - Path to the Rust binary
+   */
+  constructor(binaryPath?: string) {
+    this.binaryPath = binaryPath || '';
   }
 
   /**
-   * Analyze Rust code using rust-analyzer via our bridge
+   * Set the path to the Rust binary
+   * @param path - Path to the Rust binary
+   */
+  setBinaryPath(path: string): void {
+    this.binaryPath = path;
+  }
+
+  /**
+   * Analyze Rust code
+   * @param request - The analysis request
+   * @returns The analysis response
    */
   async analyze(request: RustAnalysisRequest): Promise<RustAnalysisResponse> {
-    return new Promise((resolve, reject) => {
-      const process = spawn(this.binaryPath, []);
+    if (!this.binaryPath) {
+      throw new Error('Rust binary path not set');
+    }
+
+    // Prepare the code as base64 to avoid shell escaping issues
+    const codeBuffer = Buffer.from(request.code);
+    const base64Code = codeBuffer.toString('base64');
+
+    // Create a filename if not provided
+    const fileName = request.fileName || 'unnamed_code.rs';
+
+    // Execute the Rust binary with the code
+    const command = `"${this.binaryPath}" analyze "${base64Code}" "${fileName}"`;
+    
+    try {
+      const { stdout } = await execPromise(command);
       
-      let stdout = '';
-      let stderr = '';
-      
-      process.stdout.on('data', (data) => {
-        stdout += data.toString();
-      });
-      
-      process.stderr.on('data', (data) => {
-        stderr += data.toString();
-      });
-      
-      process.on('close', (code) => {
-        if (code !== 0) {
-          console.error(`Process exited with code ${code}: ${stderr}`);
-          // Even on error, return an empty response to avoid client errors
-          resolve({
-            diagnostics: [{
-              message: `Analysis failed with error: ${stderr}`,
-              severity: 'error',
-              source: 'rust-bridge'
-            }],
-            suggestions: [],
-            explanation: `Error during analysis: ${stderr}`
-          });
-          return;
-        }
-        
-        try {
-          const response = JSON.parse(stdout) as RustAnalysisResponse;
-          resolve(response);
-        } catch (err) {
-          console.error('Failed to parse response', err);
-          resolve({
-            diagnostics: [{
-              message: 'Failed to parse analysis response',
-              severity: 'error',
-              source: 'rust-bridge'
-            }],
-            suggestions: [],
-            explanation: 'Internal error in the analysis service'
-          });
-        }
-      });
-      
-      // Write the request to the process stdin
-      process.stdin.write(JSON.stringify({
-        file_path: request.fileName || 'input.rs',
-        code: request.code
-      }));
-      process.stdin.end();
-    });
+      // Parse the output as JSON
+      return JSON.parse(stdout);
+    } catch (error: any) {
+      console.error('Error executing Rust binary:', error);
+      throw new Error(`Error analyzing code: ${error?.message || 'Unknown error'}`);
+    }
   }
 }
