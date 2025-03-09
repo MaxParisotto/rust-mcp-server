@@ -74,7 +74,7 @@ async function startServer() {
       enableStdio: options.enableStdio,
       enableWebSocket: true,
       port: options.port,
-      rustBinaryPath: path.join(__dirname, '../../rust-bridge/target/debug/analyze')
+      rustBinaryPath: path.join(process.cwd(), 'rust-bridge/target/debug/analyze')
     });
     
     // Start the server

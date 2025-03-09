@@ -1,9 +1,26 @@
 use rust_analyzer_bridge::analysis::AnalysisRequest;
 use std::io::{self, Read};
 use serde_json::{from_str, to_string};
+use std::fs;
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+struct Cli {
+    #[structopt(long)]
+    config: Option<String>,
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Parse CLI args
+    let args = Cli::from_args();
+
+    // Load config if provided
+    if let Some(config_path) = args.config {
+        let config = fs::read_to_string(config_path)?;
+        rust_analyzer_bridge::analysis::set_config(config)?;
+    }
+
     // Read input from stdin
     let mut buffer = String::new();
     io::stdin().read_to_string(&mut buffer)?;
@@ -24,4 +41,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("{}", to_string(&response)?);
 
     Ok(())
-} 
+}

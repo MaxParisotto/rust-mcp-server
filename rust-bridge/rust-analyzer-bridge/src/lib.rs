@@ -204,6 +204,22 @@ pub mod analysis {
             explanation: result.explanation,
         })
     }
+
+    /// Set configuration for the analysis module
+    pub fn set_config(config: String) -> Result<(), String> {
+        // Parse the config string into RustAnalyzerConfig
+        let config: RustAnalyzerConfig = serde_json::from_str(&config)
+            .map_err(|e| format!("Failed to parse config: {}", e))?;
+            
+        // Store the config in a global variable
+        CONFIG.lock().unwrap().replace(config);
+        Ok(())
+    }
+
+    lazy_static::lazy_static! {
+        static ref CONFIG: std::sync::Mutex<Option<RustAnalyzerConfig>> = 
+            std::sync::Mutex::new(None);
+    }
 }
 
 /// Analysis result from rust-analyzer
@@ -224,4 +240,4 @@ mod tests {
         assert_eq!(config.executable_path, "rust-analyzer");
         assert!(config.working_dir.is_none());
     }
-} 
+}
