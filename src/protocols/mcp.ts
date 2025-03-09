@@ -84,9 +84,11 @@ export interface Suggestion {
  */
 export class MCPProtocolHandler {
   private rustBinaryPath: string;
+  public rustBridge: any;
 
   constructor(rustBinaryPath?: string) {
     this.rustBinaryPath = rustBinaryPath || '';
+    this.rustBridge = null;
   }
 
   /**

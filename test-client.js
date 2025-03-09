@@ -5,7 +5,7 @@
 import WebSocket from 'ws';
 
 // Create a WebSocket connection
-const ws = new WebSocket('ws://localhost:8743');
+const ws = new WebSocket('ws://localhost:8744');
 
 // Connection opened
 ws.on('open', () => {
@@ -66,4 +66,4 @@ ws.on('close', () => {
 setTimeout(() => {
   console.log('Closing connection');
   ws.close();
-}, 5000); 
+}, 5000);

@@ -26,4 +26,66 @@ describe('MCP Protocol Handler', () => {
       console.warn('Test skipped - Rust binary not available', error);
     }
   });
+
+  it('should handle invalid JSON response from analyzer', async () => {
+    const handler = new MCPProtocolHandler();
+    const message: MCPMessage = {
+      type: 'rust.analyze',
+      data: {
+        code: 'fn main() { println!("Hello, world!"); }',
+        fileName: 'test.rs'
+      } as RustAnalysisRequest
+    };
+
+    // Mock the RustBridge service to return invalid JSON
+    const mockRustBridge = {
+      analyze: async () => ({
+        diagnostics: [{
+          message: 'Failed to parse analysis response: Invalid or empty response from analyzer',
+          severity: 'error',
+          source: 'rust-bridge'
+        }],
+        suggestions: [],
+        explanation: 'Internal error in the analysis service: Invalid or empty response from analyzer'
+      })
+    };
+
+    handler['rustBridge'] = mockRustBridge;
+    
+    const response = await handler.handleMessage(message);
+    expect(response.type).toBe('rust.analysis.result');
+    expect(response.data.diagnostics.length).toBe(1);
+    expect(response.data.diagnostics[0].message).toContain('Failed to parse analysis response');
+  });
+
+  it('should handle malformed JSON response from analyzer', async () => {
+    const handler = new MCPProtocolHandler();
+    const message: MCPMessage = {
+      type: 'rust.analyze',
+      data: {
+        code: 'fn main() { println!("Hello, world!"); }',
+        fileName: 'test.rs'
+      } as RustAnalysisRequest
+    };
+
+    // Mock the RustBridge service to return malformed JSON
+    const mockRustBridge = {
+      analyze: async () => ({
+        diagnostics: [{
+          message: 'Failed to parse analysis response: Invalid response structure from analyzer',
+          severity: 'error',
+          source: 'rust-bridge'
+        }],
+        suggestions: [],
+        explanation: 'Internal error in the analysis service: Invalid response structure from analyzer'
+      })
+    };
+
+    handler['rustBridge'] = mockRustBridge;
+    
+    const response = await handler.handleMessage(message);
+    expect(response.type).toBe('rust.analysis.result');
+    expect(response.data.diagnostics.length).toBe(1);
+    expect(response.data.diagnostics[0].message).toContain('Failed to parse analysis response');
+  });
 });

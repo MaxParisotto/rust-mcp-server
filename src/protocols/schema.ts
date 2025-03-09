@@ -330,4 +330,38 @@ export function getMCPSchema() {
 export type MCPSchema = ReturnType<typeof getMCPSchema>;
 export type RustAnalysisRequest = z.infer<typeof RustAnalysisRequestSchema>;
 export type RustSuggestionRequest = z.infer<typeof RustSuggestionRequestSchema>;
-export type RustExplanationRequest = z.infer<typeof RustExplanationRequestSchema>; 
+export type RustExplanationRequest = z.infer<typeof RustExplanationRequestSchema>;
+
+export interface RustAnalysisResult {
+  diagnostics: Array<{
+    message: string;
+    severity: 'error' | 'warning' | 'info' | 'hint';
+    range?: {
+      start: { line: number; character: number };
+      end: { line: number; character: number };
+    };
+    suggestions?: Array<{
+      message: string;
+      replacement: string;
+    }>;
+  }>;
+}
+
+export interface RustExplanationResult {
+  explanation: string;
+  references?: Array<{
+    title: string;
+    url: string;
+  }>;
+}
+
+export interface RustSuggestionResult {
+  suggestions: Array<{
+    message: string;
+    replacement: string;
+    range: {
+      start: { line: number; character: number };
+      end: { line: number; character: number };
+    };
+  }>;
+}

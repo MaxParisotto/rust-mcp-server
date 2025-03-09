@@ -60,7 +60,7 @@ export class Logger {
     level: LogLevel.INFO,
     useConsole: true,
     useFile: true,
-    logDir: path.join(process.cwd(), 'logs'),
+    logDir: 'logs', // Default to relative path
     logPrefix: 'mcp-server',
     maxLogFiles: 5,
     maxLogSizeBytes: 10 * 1024 * 1024, // 10MB
@@ -69,28 +69,49 @@ export class Logger {
   // Map of active file handles
   private static fileHandles: Map<string, fs.WriteStream> = new Map();
   private static logDirInitialized = false;
+  private static resolvedLogDir: string = '';
 
   /**
    * Configure the global logger settings
    * @param config - Logger configuration options
    */
   public static configure(config: Partial<LoggerConfig>): void {
-    Logger.config = { ...Logger.config, ...config };
+    // Merge configs but ensure logDir is always relative
+    Logger.config = { 
+      ...Logger.config, 
+      ...config,
+      // Force logDir to be relative if it's provided
+      logDir: config.logDir ? path.relative(process.cwd(), path.resolve(process.cwd(), config.logDir)) : Logger.config.logDir
+    };
     
     try {
       if (Logger.config.useFile && !Logger.logDirInitialized) {
-        // Update the log directory path with the resolved path
-        Logger.config.logDir = ensureDirectoryExists(Logger.config.logDir);
-        Logger.logDirInitialized = true;
+        // Resolve the log directory path
+        Logger.resolvedLogDir = path.resolve(process.cwd(), Logger.config.logDir);
         
-        // Rotate logs if needed
+        // Ensure the directory exists
+        if (!fs.existsSync(Logger.resolvedLogDir)) {
+          fs.mkdirSync(Logger.resolvedLogDir, { recursive: true });
+        }
+        
+        Logger.logDirInitialized = true;
         Logger.rotateLogsIfNeeded();
       }
     } catch (error) {
-      // If all attempts fail, disable file logging
-      console.error('Failed to initialize logging system, falling back to console-only logging:', error);
-      Logger.config.useFile = false;
-      Logger.config.logDir = '';
+      // If creating the directory fails, use temp directory
+      const tempDir = path.join(os.tmpdir(), 'rust-mcp-logs');
+      console.warn(`Failed to create log directory at ${Logger.resolvedLogDir}, using temp directory: ${tempDir}`);
+      
+      try {
+        fs.mkdirSync(tempDir, { recursive: true });
+        Logger.resolvedLogDir = tempDir;
+        Logger.logDirInitialized = true;
+      } catch (tempError) {
+        // If even temp directory fails, disable file logging
+        console.error('Failed to create temp log directory, falling back to console-only logging:', tempError);
+        Logger.config.useFile = false;
+        Logger.resolvedLogDir = '';
+      }
     }
   }
 
@@ -99,7 +120,7 @@ export class Logger {
    */
   private static rotateLogsIfNeeded(): void {
     const currentLogFile = path.join(
-      Logger.config.logDir,
+      Logger.resolvedLogDir,
       `${Logger.config.logPrefix}.log`
     );
 
@@ -124,11 +145,11 @@ export class Logger {
     // Shift existing log files
     for (let i = Logger.config.maxLogFiles - 1; i > 0; i--) {
       const oldPath = path.join(
-        Logger.config.logDir,
+        Logger.resolvedLogDir,
         `${Logger.config.logPrefix}.${i - 1}.log`
       );
       const newPath = path.join(
-        Logger.config.logDir,
+        Logger.resolvedLogDir,
         `${Logger.config.logPrefix}.${i}.log`
       );
 
@@ -142,11 +163,11 @@ export class Logger {
 
     // Rename current log file
     const currentLogFile = path.join(
-      Logger.config.logDir,
+      Logger.resolvedLogDir,
       `${Logger.config.logPrefix}.log`
     );
     const rotatedLogFile = path.join(
-      Logger.config.logDir,
+      Logger.resolvedLogDir,
       `${Logger.config.logPrefix}.0.log`
     );
 
@@ -270,15 +291,13 @@ export class Logger {
    * @param entry - The formatted log entry to write
    */
   private writeToLogFile(entry: string): void {
-    try {
-      // Create logs directory if it doesn't exist
-      if (!Logger.logDirInitialized) {
-        ensureDirectoryExists(Logger.config.logDir);
-        Logger.logDirInitialized = true;
-      }
+    if (!Logger.config.useFile || !Logger.resolvedLogDir) {
+      return;
+    }
 
+    try {
       const logFilePath = path.join(
-        Logger.config.logDir,
+        Logger.resolvedLogDir,
         `${Logger.config.logPrefix}.log`
       );
 
@@ -294,6 +313,8 @@ export class Logger {
     } catch (error) {
       // If we can't write to the log file, just log to console
       console.error('Failed to write to log file:', error);
+      // Disable file logging to prevent further errors
+      Logger.config.useFile = false;
     }
   }
 

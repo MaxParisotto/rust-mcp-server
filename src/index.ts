@@ -18,13 +18,13 @@ Logger.configure({
   level: process.env.NODE_ENV === 'production' ? LogLevel.INFO : LogLevel.DEBUG,
   useConsole: true,
   useFile: true,
-  logDir: 'logs', // Use a simple relative path
+  logDir: './logs', // Explicitly use relative path with ./
   logPrefix: 'rust-mcp-server',
   maxLogFiles: 5,
   maxLogSizeBytes: 10 * 1024 * 1024 // 10MB
 });
 
-// Log the current working directory for debugging purposes
+// Log the current working directory and resolved log path for debugging
 logger.info(`Current working directory: ${process.cwd()}`);
 
 /**
