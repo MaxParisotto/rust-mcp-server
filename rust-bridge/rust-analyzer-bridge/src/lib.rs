@@ -205,20 +205,21 @@ pub mod analysis {
         })
     }
 
+    static CONFIG: std::sync::OnceLock<std::sync::Mutex<Option<RustAnalyzerConfig>>> = std::sync::OnceLock::new();
+
+    fn get_config() -> &'static std::sync::Mutex<Option<RustAnalyzerConfig>> {
+        CONFIG.get_or_init(|| std::sync::Mutex::new(None))
+    }
+
     /// Set configuration for the analysis module
     pub fn set_config(config: String) -> Result<(), String> {
         // Parse the config string into RustAnalyzerConfig
         let config: RustAnalyzerConfig = serde_json::from_str(&config)
             .map_err(|e| format!("Failed to parse config: {}", e))?;
             
-        // Store the config in a global variable
-        CONFIG.lock().unwrap().replace(config);
+        // Store the config in the global variable
+        get_config().lock().unwrap().replace(config);
         Ok(())
-    }
-
-    lazy_static::lazy_static! {
-        static ref CONFIG: std::sync::Mutex<Option<RustAnalyzerConfig>> = 
-            std::sync::Mutex::new(None);
     }
 }
 

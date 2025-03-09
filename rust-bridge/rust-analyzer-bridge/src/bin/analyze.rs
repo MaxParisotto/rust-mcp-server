@@ -2,18 +2,20 @@ use rust_analyzer_bridge::analysis::AnalysisRequest;
 use std::io::{self, Read};
 use serde_json::{from_str, to_string};
 use std::fs;
-use structopt::StructOpt;
+use clap::Parser;
 
-#[derive(StructOpt)]
+#[derive(Parser)]
+#[command(name = "rust-analyzer-bridge")]
+#[command(about = "Rust Analyzer Bridge CLI", long_about = None)]
 struct Cli {
-    #[structopt(long)]
+    #[arg(long)]
     config: Option<String>,
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Parse CLI args
-    let args = Cli::from_args();
+    let args = Cli::parse();
 
     // Load config if provided
     if let Some(config_path) = args.config {

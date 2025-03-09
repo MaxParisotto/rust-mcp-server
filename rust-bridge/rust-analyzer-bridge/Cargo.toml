@@ -8,14 +8,10 @@ name = "analyze"
 path = "src/bin/analyze.rs"
 
 [dependencies]
-# Using more compatible versions that don't require edition2024
 lsp-types = "0.97.0"
 serde = { version = "1.0.219", features = ["derive"] }
 serde_json = "1.0.140"
 tokio = { version = "1.44.0", features = ["full", "macros"] }
 tower-lsp = "0.20.0"
-structopt = "0.3.26"
-lazy_static = "1.5.0"
-
-# Removed direct dependency on rust-analyzer to avoid edition2024 requirement
-# We'll implement alternative approach
+clap = { version = "4.5.31", features = ["derive"] }
+once_cell = "1.20.3"
