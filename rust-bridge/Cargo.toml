@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "rust-analyzer-bridge",
+]
+
+resolver = "2"

@@ -1,0 +1,5 @@
+# Rust specific gitignore
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb

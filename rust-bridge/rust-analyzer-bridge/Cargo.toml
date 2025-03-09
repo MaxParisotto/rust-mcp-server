@@ -1,0 +1,19 @@
+[package]
+name = "rust-analyzer-bridge"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "analyze"
+path = "src/bin/analyze.rs"
+
+[dependencies]
+# Using more compatible versions that don't require edition2024
+lsp-types = "0.93"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full", "macros"] }
+tower-lsp = "0.19.0"
+
+# Removed direct dependency on rust-analyzer to avoid edition2024 requirement
+# We'll implement alternative approach
