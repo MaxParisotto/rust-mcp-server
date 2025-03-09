@@ -3,7 +3,7 @@
  * Provides common functionality for all handlers including logging and error handling
  */
 
-import { Logger } from '../utils/logger.js';
+import { Logger } from '../utils/logger.ts';
 
 export interface HandlerResponse<T> {
   success: boolean;
@@ -108,4 +108,4 @@ export abstract class BaseHandler {
       throw new Error(`Rust binary not found at ${binaryPath}`);
     }
   }
-} 
+}

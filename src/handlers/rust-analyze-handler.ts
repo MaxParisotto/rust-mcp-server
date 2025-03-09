@@ -6,9 +6,9 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import * as path from 'path';
-import { BaseHandler, HandlerResponse } from './base-handler.js';
-import { RustAnalysisRequest } from '../protocols/schema.js';
-import { StorageService } from '../utils/storage.js';
+import { BaseHandler, HandlerResponse } from './base-handler.ts';
+import { RustAnalysisRequest } from '../protocols/schema.ts';
+import { StorageService } from '../utils/storage.ts';
 import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
 
@@ -217,4 +217,4 @@ export class RustAnalyzeHandler extends BaseHandler {
       return analysis;
     });
   }
-} 
+}

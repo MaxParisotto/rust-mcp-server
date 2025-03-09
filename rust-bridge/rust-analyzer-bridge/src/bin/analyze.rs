@@ -1,4 +1,4 @@
-use rust_analyzer_bridge::analysis::{AnalysisRequest, AnalysisResponse};
+use rust_analyzer_bridge::analysis::AnalysisRequest;
 use std::io::{self, Read};
 use serde_json::{from_str, to_string};
 

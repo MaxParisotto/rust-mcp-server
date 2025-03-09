@@ -1,4 +1,4 @@
-import { BaseHandler, HandlerResponse } from './base-handler.js';
+import { BaseHandler, HandlerResponse } from './base-handler.ts';
 import {
   RustAnalysisRequest,
   RustAnalysisResult,
@@ -6,7 +6,7 @@ import {
   RustExplanationResult,
   RustSuggestionRequest,
   RustSuggestionResult
-} from '../protocols/schema.js';
+} from '../protocols/schema.ts';
 
 export class RustAnalysisHandler extends BaseHandler {
   constructor(binaryPath: string) {

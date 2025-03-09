@@ -219,10 +219,67 @@
   }
 }
 [2025-03-09T20:54:22.024Z] [INFO] [WebSocketTransport] Client disconnected
-'2.0', id: 2, method: 'tools/list' }
-[2025-03-09T20:54:17.032Z] [DEBUG] [MCPServer] Received message
+[2025-03-09T21:54:13.942Z] [INFO] [WebSocketTransport] Client connected
+[2025-03-09T21:54:13.947Z] [DEBUG] [WebSocketTransport] Received message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '0.1.0',
+    clientInfo: { name: 'test-client', version: '1.0.0' },
+    capabilities: {}
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [MCPServer] Received message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '0.1.0',
+    clientInfo: { name: 'test-client', version: '1.0.0' },
+    capabilities: {}
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [MCPServer] Received message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '0.1.0',
+    clientInfo: { name: 'test-client', version: '1.0.0' },
+    capabilities: {}
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [MCPServer] Sending response
+{
+  jsonrpc: '2.0',
+  id: 1,
+  result: {
+    protocolVersion: '0.1.0',
+    serverInfo: { name: 'Rust MCP Server', version: '1.0.0' },
+    capabilities: { tools: true, resources: true }
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [WebSocketTransport] Sending message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  result: {
+    protocolVersion: '0.1.0',
+    serverInfo: { name: 'Rust MCP Server', version: '1.0.0' },
+    capabilities: { tools: true, resources: true }
+  }
+}
+[2025-03-09T21:54:13.948Z] [DEBUG] [WebSocketTransport] Received message
 { jsonrpc: '2.0', id: 2, method: 'tools/list' }
-[2025-03-09T20:54:17.032Z] [DEBUG] [MCPServer] Sending response
+[2025-03-09T21:54:13.948Z] [DEBUG] [MCPServer] Received message
+{ jsonrpc: '2.0', id: 2, method: 'tools/list' }
+[2025-03-09T21:54:13.948Z] [DEBUG] [MCPServer] Received message
+{ jsonrpc: '2.0', id: 2, method: 'tools/list' }
+[2025-03-09T21:54:13.948Z] [DEBUG] [MCPServer] Sending response
 {
   jsonrpc: '2.0',
   id: 2,
@@ -286,7 +343,7 @@
     ]
   }
 }
-[2025-03-09T20:54:17.033Z] [DEBUG] [WebSocketTransport] Sending message
+[2025-03-09T21:54:13.948Z] [DEBUG] [WebSocketTransport] Sending message
 {
   jsonrpc: '2.0',
   id: 2,
@@ -350,4 +407,204 @@
     ]
   }
 }
-[2025-03-09T20:54:22.024Z] [INFO] [WebSocketTransport] Client disconnected
+[2025-03-09T21:54:18.942Z] [INFO] [WebSocketTransport] Client disconnected
+istory
+[2025-03-09T21:19:36.974Z] [INFO] [MCPServer] Registered resource: Rust Common Errors
+[2025-03-09T21:19:36.974Z] [INFO] [MCPServer] Registered resource: Rust Best Practices
+[2025-03-09T21:19:36.975Z] [INFO] [MCPServer] Registered resource: Rust Lifetime Reference
+[2025-03-09T21:19:37.012Z] [INFO] [MCPServer] Added transport
+[2025-03-09T21:19:37.012Z] [INFO] [MCPServer] WebSocket transport enabled on port 8743
+[2025-03-09T21:19:37.013Z] [INFO] [MCPServer] Starting MCP server
+[2025-03-09T21:19:37.013Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-09T21:19:37.013Z] [INFO] [MCPServer] MCP server started
+[2025-03-09T21:19:37.013Z] [INFO] [MCPServer] MCP Server started successfully
+[2025-03-09T21:19:45.020Z] [INFO] [Main] Received SIGINT signal, shutting down...
+[2025-03-09T21:54:13.942Z] [INFO] [WebSocketTransport] Client connected
+[2025-03-09T21:54:13.947Z] [DEBUG] [WebSocketTransport] Received message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '0.1.0',
+    clientInfo: { name: 'test-client', version: '1.0.0' },
+    capabilities: {}
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [MCPServer] Received message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '0.1.0',
+    clientInfo: { name: 'test-client', version: '1.0.0' },
+    capabilities: {}
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [MCPServer] Received message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: {
+    protocolVersion: '0.1.0',
+    clientInfo: { name: 'test-client', version: '1.0.0' },
+    capabilities: {}
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [MCPServer] Sending response
+{
+  jsonrpc: '2.0',
+  id: 1,
+  result: {
+    protocolVersion: '0.1.0',
+    serverInfo: { name: 'Rust MCP Server', version: '1.0.0' },
+    capabilities: { tools: true, resources: true }
+  }
+}
+[2025-03-09T21:54:13.947Z] [DEBUG] [WebSocketTransport] Sending message
+{
+  jsonrpc: '2.0',
+  id: 1,
+  result: {
+    protocolVersion: '0.1.0',
+    serverInfo: { name: 'Rust MCP Server', version: '1.0.0' },
+    capabilities: { tools: true, resources: true }
+  }
+}
+[2025-03-09T21:54:13.948Z] [DEBUG] [WebSocketTransport] Received message
+{ jsonrpc: '2.0', id: 2, method: 'tools/list' }
+[2025-03-09T21:54:13.948Z] [DEBUG] [MCPServer] Received message
+{ jsonrpc: '2.0', id: 2, method: 'tools/list' }
+[2025-03-09T21:54:13.948Z] [DEBUG] [MCPServer] Received message
+{ jsonrpc: '2.0', id: 2, method: 'tools/list' }
+[2025-03-09T21:54:13.948Z] [DEBUG] [MCPServer] Sending response
+{
+  jsonrpc: '2.0',
+  id: 2,
+  result: {
+    tools: [
+      {
+        name: 'rust.analyze',
+        description: 'Analyzes Rust code for errors, warnings, and potential issues using rust-analyzer.\n' +
+          '\n' +
+          'This tool provides deep semantic analysis of Rust code beyond simple syntax checking. It identifies errors, type mismatches, borrow checker violations, and other issues with detailed diagnostics that explain the problem and often suggest fixes.\n' +
+          '\n' +
+          'The analysis results include:\n' +
+          '- Diagnostics with severity levels (error, warning, info, hint)\n' +
+          '- Code positions for each diagnostic\n' +
+          '- Suggestions for fixing issues where available\n' +
+          '- Additional context about the error when relevant\n' +
+          '\n' +
+          'This is the primary tool to use when checking Rust code for correctness.'
+      },
+      {
+        name: 'rust.suggest',
+        description: "Provides recommendations for improving Rust code, even if it's already correct.\n" +
+          '\n' +
+          'This tool focuses on optimizing code for idiomatic Rust style, performance, safety, and maintainability. It can suggest improvements like:\n' +
+          '- More idiomatic ways to express the same logic\n' +
+          '- Potential optimizations for better performance\n' +
+          '- More robust error handling patterns\n' +
+          '- Simplifications of complex expressions\n' +
+          "- Better use of Rust's type system and ownership model\n" +
+          '\n' +
+          'Each suggestion includes a title, description, and suggested code change with its location.\n' +
+          '\n' +
+          'Use this tool when you have code that works but want to improve its quality.'
+      },
+      {
+        name: 'rust.explain',
+        description: 'Provides detailed explanations of Rust code patterns, errors, and concepts.\n' +
+          '\n' +
+          "This tool helps users understand complex Rust code or error messages by providing clear explanations in natural language. It's particularly useful for:\n" +
+          '- Understanding why the borrow checker is rejecting code\n' +
+          '- Learning about unfamiliar Rust patterns or idioms\n' +
+          '- Getting background on compiler errors and their solutions\n' +
+          '- Understanding lifetime annotations and their implications\n' +
+          '- Learning how traits and generics are being used\n' +
+          '\n' +
+          'The explanation will break down the code or error, explain the concepts involved, and offer insights on how to think about it in the Rust mental model.\n' +
+          '\n' +
+          'Use this tool when you need to understand "why" rather than just fixing an error.'
+      },
+      {
+        name: 'rust.history',
+        description: 'Retrieves the history of previous Rust code analyses.\n' +
+          '\n' +
+          'This tool allows you to view past analyses, which can be useful for:\n' +
+          '- Comparing changes in code over time\n' +
+          '- Reviewing previously fixed errors\n' +
+          '- Continuing work on code from previous sessions\n' +
+          '\n' +
+          'Results include a list of previous analyses with timestamps, file names, and summaries of the diagnostics.'
+      }
+    ]
+  }
+}
+[2025-03-09T21:54:13.948Z] [DEBUG] [WebSocketTransport] Sending message
+{
+  jsonrpc: '2.0',
+  id: 2,
+  result: {
+    tools: [
+      {
+        name: 'rust.analyze',
+        description: 'Analyzes Rust code for errors, warnings, and potential issues using rust-analyzer.\n' +
+          '\n' +
+          'This tool provides deep semantic analysis of Rust code beyond simple syntax checking. It identifies errors, type mismatches, borrow checker violations, and other issues with detailed diagnostics that explain the problem and often suggest fixes.\n' +
+          '\n' +
+          'The analysis results include:\n' +
+          '- Diagnostics with severity levels (error, warning, info, hint)\n' +
+          '- Code positions for each diagnostic\n' +
+          '- Suggestions for fixing issues where available\n' +
+          '- Additional context about the error when relevant\n' +
+          '\n' +
+          'This is the primary tool to use when checking Rust code for correctness.'
+      },
+      {
+        name: 'rust.suggest',
+        description: "Provides recommendations for improving Rust code, even if it's already correct.\n" +
+          '\n' +
+          'This tool focuses on optimizing code for idiomatic Rust style, performance, safety, and maintainability. It can suggest improvements like:\n' +
+          '- More idiomatic ways to express the same logic\n' +
+          '- Potential optimizations for better performance\n' +
+          '- More robust error handling patterns\n' +
+          '- Simplifications of complex expressions\n' +
+          "- Better use of Rust's type system and ownership model\n" +
+          '\n' +
+          'Each suggestion includes a title, description, and suggested code change with its location.\n' +
+          '\n' +
+          'Use this tool when you have code that works but want to improve its quality.'
+      },
+      {
+        name: 'rust.explain',
+        description: 'Provides detailed explanations of Rust code patterns, errors, and concepts.\n' +
+          '\n' +
+          "This tool helps users understand complex Rust code or error messages by providing clear explanations in natural language. It's particularly useful for:\n" +
+          '- Understanding why the borrow checker is rejecting code\n' +
+          '- Learning about unfamiliar Rust patterns or idioms\n' +
+          '- Getting background on compiler errors and their solutions\n' +
+          '- Understanding lifetime annotations and their implications\n' +
+          '- Learning how traits and generics are being used\n' +
+          '\n' +
+          'The explanation will break down the code or error, explain the concepts involved, and offer insights on how to think about it in the Rust mental model.\n' +
+          '\n' +
+          'Use this tool when you need to understand "why" rather than just fixing an error.'
+      },
+      {
+        name: 'rust.history',
+        description: 'Retrieves the history of previous Rust code analyses.\n' +
+          '\n' +
+          'This tool allows you to view past analyses, which can be useful for:\n' +
+          '- Comparing changes in code over time\n' +
+          '- Reviewing previously fixed errors\n' +
+          '- Continuing work on code from previous sessions\n' +
+          '\n' +
+          'Results include a list of previous analyses with timestamps, file names, and summaries of the diagnostics.'
+      }
+    ]
+  }
+}
+[2025-03-09T21:54:18.942Z] [INFO] [WebSocketTransport] Client disconnected

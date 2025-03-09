@@ -3,7 +3,7 @@
  * Implementations of the Model Context Protocol for the Rust Analysis Server
  */
 
-import { getMCPSchema } from './schema.js';
+import { getMCPSchema } from './schema.ts';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 

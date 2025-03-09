@@ -5,9 +5,9 @@
 
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { BaseHandler, HandlerResponse } from './base-handler.js';
-import { RustSuggestionRequest } from '../protocols/schema.js';
-import { StorageService } from '../utils/storage.js';
+import { BaseHandler, HandlerResponse } from './base-handler.ts';
+import { RustSuggestionRequest } from '../protocols/schema.ts';
+import { StorageService } from '../utils/storage.ts';
 import { v4 as uuidv4 } from 'uuid';
 
 // Promisify exec for async/await usage
@@ -122,4 +122,4 @@ export class RustSuggestHandler extends BaseHandler {
       }
     });
   }
-} 
+}

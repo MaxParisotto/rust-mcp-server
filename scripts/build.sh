@@ -2,9 +2,10 @@
 set -e
 
 echo "Building Rust analyzer bridge..."
-cd rust-bridge
+cd rust-bridge/rust-analyzer-bridge
 cargo build --release
-cd ..
+cd ../..
+cp rust-bridge/target/release/analyze rust-bridge/target/release/rust-analyzer-bridge
 
 echo "Building TypeScript project..."
 npx tsc
