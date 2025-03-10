@@ -21,7 +21,7 @@ function isValidTimeout(timeout) {
 
 // Configuration with validation
 const config = {
-  websocketUrl: process.env.WS_URL || 'ws://localhost:8743',
+  websocketUrl: process.env.WS_URL || 'ws://localhost:3000',
   timeout: process.env.TIMEOUT ? parseInt(process.env.TIMEOUT) : 60000
 };
 

@@ -8,7 +8,6 @@ export default {
   clearMocks: true,
   resetMocks: true,
   restoreMocks: true,
-  modulePaths: ['<rootDir>/rust-bridge/target/release'],
   moduleFileExtensions: ['ts', 'js'],
   extensionsToTreatAsEsm: ['.ts'],
   transform: {
