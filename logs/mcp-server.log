@@ -40,3 +40,20 @@
 [2025-03-10T11:07:46.993Z] [INFO] [Server] Rust MCP Server listening on port 3000
 [2025-03-10T11:11:42.735Z] [INFO] [Server] Client connected
 [2025-03-10T11:11:42.794Z] [INFO] [Server] Client disconnected
+[2025-03-10T13:41:04.040Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T13:41:04.044Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T13:41:04.044Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T13:41:04.044Z] [INFO] [RustMCPServer] Stdio transport enabled
+[2025-03-10T13:41:04.044Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T13:41:04.045Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T13:41:04.045Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T13:41:04.045Z] [INFO] [Main] Stdio transport: enabled
+[2025-03-10T13:45:03.606Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T13:45:03.610Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T13:45:03.610Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T13:45:03.611Z] [INFO] [RustMCPServer] Stdio transport enabled
+[2025-03-10T13:45:03.611Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T13:45:03.611Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T13:45:03.611Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T13:45:03.611Z] [INFO] [Main] Stdio transport: enabled
+[2025-03-10T13:45:32.503Z] [INFO] [Main] Received SIGTERM, shutting down

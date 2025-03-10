@@ -5,9 +5,9 @@
 
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { BaseHandler, HandlerResponse } from './base-handler';
-import { RustExplanationRequest } from '../protocols/schema';
-import { StorageService } from '../utils/storage';
+import { BaseHandler, HandlerResponse } from './base-handler.js';
+import { RustExplanationRequest } from '../protocols/schema.js';
+import { StorageService } from '../utils/storage.js';
 import { v4 as uuidv4 } from 'uuid';
 
 // Promisify exec for async/await usage

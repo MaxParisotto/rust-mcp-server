@@ -49,3 +49,11 @@
   - Created test-direct-server.cjs to verify server functionality
   - Confirmed that server correctly processes requests and returns valid responses
   - Updated MCP configuration to use the new server
+
+- Refactored server to use official MCP SDK:
+  - Created new sdk-server.ts implementation using @modelcontextprotocol/sdk
+  - Added proper URI properties to resource definitions
+  - Fixed import paths to include .js extensions for ESM compatibility
+  - Implemented proper request handlers for tools and resources
+  - Updated WebSocket transport to work with SDK
+  - Updated index.ts to use new SDK-based server implementation

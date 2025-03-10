@@ -1,20 +1,22 @@
 #!/usr/bin/env node
 
-import { RustMCPServer } from './mcp/mcp-server.js';
+import { RustMCPServer } from './mcp/sdk-server.js';
 import { Logger } from './utils/logger.js';
+
+// Process command line arguments
+const args = process.argv.slice(2);
+const isAutostart = process.env.AUTOSTART === 'true';
 
 // Initialize logger
 Logger.configure({
   useFile: true,
-  logDir: 'logs',
+  logDir: isAutostart ? '/tmp/rust-mcp-logs' : './logs',
 });
 
 const logger = new Logger('Main');
 
-// Process command line arguments
-const args = process.argv.slice(2);
-const enableStdio = args.includes('--stdio') || args.includes('-s');
-const enableWebSocket = !args.includes('--no-websocket') && !args.includes('-n');
+const enableStdio = args.includes('--stdio') || args.includes('-s') || process.env.AUTOSTART === 'true';
+const enableWebSocket = (!args.includes('--no-websocket') && !args.includes('-n')) && process.env.AUTOSTART !== 'true';
 const portArg = args.find(arg => arg.startsWith('--port=') || arg.startsWith('-p='));
 const port = portArg ? parseInt(portArg.split('=')[1], 10) : 3000;
 
@@ -37,9 +39,11 @@ async function main() {
     // Start the server
     await mcpServer.start();
     
-    // Save the process ID to a file for management scripts
-    const fs = await import('fs');
-    fs.writeFileSync('.server.pid', process.pid.toString());
+    // Save the process ID to a file for management scripts (only in non-autostart mode)
+    if (!isAutostart) {
+      const fs = await import('fs');
+      fs.writeFileSync('.server.pid', process.pid.toString());
+    }
     
     // Handle process termination
     process.on('SIGINT', async () => {

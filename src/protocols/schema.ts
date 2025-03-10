@@ -159,6 +159,7 @@ export const RUST_COMMON_ERRORS_RESOURCE = {
   name: "Rust Common Errors",
   description: "Reference guide to common Rust compiler errors and how to fix them",
   type: "reference",
+  uri: "rust://reference/common-errors",
   data: {
     errors: [
       {
@@ -207,6 +208,7 @@ export const RUST_BEST_PRACTICES_RESOURCE = {
   name: "Rust Best Practices",
   description: "Guide to idiomatic Rust coding practices and patterns",
   type: "guide",
+  uri: "rust://guide/best-practices",
   data: {
     categories: [
       {
@@ -265,6 +267,7 @@ export const RUST_LIFETIME_REFERENCE_RESOURCE = {
   name: "Rust Lifetime Reference",
   description: "Guide to understanding Rust's lifetime system",
   type: "reference",
+  uri: "rust://reference/lifetimes",
   data: {
     sections: [
       {

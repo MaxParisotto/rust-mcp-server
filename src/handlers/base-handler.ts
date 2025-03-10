@@ -3,7 +3,7 @@
  * Provides common functionality for all handlers including logging and error handling
  */
 
-import { Logger } from '../utils/logger';
+import { Logger } from '../utils/logger.js';
 import { promises as fs } from 'fs';
 
 export interface HandlerResponse<T> {

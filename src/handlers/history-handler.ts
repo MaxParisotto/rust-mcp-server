@@ -3,8 +3,8 @@
  * Provides functionality to retrieve stored analysis history
  */
 
-import { BaseHandler, HandlerResponse } from './base-handler';
-import { StorageService } from '../utils/storage';
+import { BaseHandler, HandlerResponse } from './base-handler.js';
+import { StorageService } from '../utils/storage.js';
 
 /**
  * Interface for history list result
