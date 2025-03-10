@@ -57,3 +57,661 @@
 [2025-03-10T13:45:03.611Z] [INFO] [Main] WebSocket transport: enabled
 [2025-03-10T13:45:03.611Z] [INFO] [Main] Stdio transport: enabled
 [2025-03-10T13:45:32.503Z] [INFO] [Main] Received SIGTERM, shutting down
+[2025-03-10T14:03:04.526Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:03:04.529Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:03:04.529Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:03:04.529Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:03:04.530Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:03:04.530Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:03:04.530Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:04:16.072Z] [INFO] [Main] Received SIGINT, shutting down
+[2025-03-10T14:04:44.802Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:04:44.805Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:04:44.805Z] [WARN] [StorageService] Failed to load storage data, initializing new storage
+Error: Storage file not found: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+    at StorageService.loadData (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/utils/storage.js:55:19)
+    at StorageService.initialize (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/utils/storage.js:41:24)
+    at new RustAnalyzeHandler (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/handlers/rust-analyze-handler.js:19:22)
+    at new RustMCPServer (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:29:35)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:22:27)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:04:44.806Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:04:44.806Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:04:44.806Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:04:44.806Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:04:44.806Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:04:44.807Z] [INFO] [StorageService] Saved 0 analysis records to storage
+[2025-03-10T14:04:52.556Z] [INFO] [Main] Received SIGINT, shutting down
+[2025-03-10T14:05:23.632Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:05:23.635Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:05:23.635Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:05:23.635Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:05:23.635Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:05:23.636Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:05:23.636Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:05:23.636Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:05:53.455Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:05:53.458Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:05:53.458Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:05:53.458Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:05:53.459Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:05:53.459Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:05:53.459Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:05:53.459Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:05:53.459Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:05:53.460Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:06:26.708Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:06:26.711Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:06:26.712Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:06:26.712Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:06:26.712Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:06:26.712Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:06:26.712Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:06:26.712Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:06:26.713Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:06:26.713Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:07:37.146Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:07:37.149Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:07:37.149Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:07:37.149Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:07:37.150Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:07:37.150Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:07:37.150Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:07:37.150Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:07:37.150Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:07:37.151Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:08:05.420Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:08:05.423Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:08:05.424Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:08:05.424Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:08:05.424Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:08:05.424Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:08:05.424Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:08:05.424Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:08:05.425Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:08:05.425Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:08:35.836Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:08:35.839Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:08:35.839Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:08:35.839Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:08:35.840Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:08:35.840Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:08:35.840Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:08:35.840Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:08:35.840Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:08:35.841Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:09:03.714Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:09:03.717Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:09:03.717Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:09:03.717Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:09:03.717Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:09:03.718Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:09:03.718Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:09:03.718Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:09:03.718Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:09:03.719Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:09:30.364Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:09:30.367Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:09:30.367Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:09:30.367Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:09:30.368Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:09:30.368Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:09:30.368Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:09:30.369Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:10:09.094Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:10:09.097Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:10:09.097Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:10:09.097Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:10:09.097Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:10:09.098Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:10:09.098Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:10:09.098Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:10:09.098Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:10:09.099Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:10:46.043Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:10:46.047Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:10:46.047Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:10:46.047Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:10:46.048Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:10:46.048Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:10:46.048Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:10:46.049Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:11:42.575Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:11:42.578Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:11:42.578Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:11:42.579Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:11:42.579Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:11:42.579Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:11:42.579Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:11:42.580Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:12:48.101Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:12:48.104Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:12:48.104Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:12:48.104Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:12:48.104Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:12:48.104Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:12:48.104Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:12:48.105Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:12:48.105Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:12:48.106Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:13:10.935Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:13:10.938Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:13:10.938Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:13:10.938Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:13:10.939Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:13:10.939Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:13:10.939Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:13:10.939Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:13:10.940Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:13:10.941Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:13:34.711Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:13:34.715Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:13:34.715Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:13:34.715Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:13:34.716Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:13:34.716Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:13:34.716Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:13:34.717Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:14:14.457Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:14:14.460Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:14:14.460Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:14:14.460Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:14:14.460Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:14:14.461Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:14:14.461Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:14:14.461Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:14:14.461Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:14:14.462Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:14:37.942Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:14:37.945Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:14:37.945Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:14:37.945Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:14:37.945Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:14:37.945Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:14:37.945Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:14:37.946Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:14:37.946Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:14:37.947Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:15:04.971Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:15:04.973Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:15:04.973Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:15:04.974Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:15:04.974Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:15:04.974Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:15:04.974Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:15:04.974Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:15:04.975Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:15:04.975Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:16:42.375Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:16:42.377Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:16:42.378Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:16:42.378Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:16:42.378Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:16:42.378Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:16:42.378Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:16:42.379Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:16:42.379Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:16:42.380Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:16:59.895Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:16:59.898Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:16:59.898Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:16:59.898Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:16:59.898Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:16:59.898Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:16:59.898Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:16:59.899Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:16:59.899Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:16:59.900Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:17:16.515Z] [INFO] [Main] Received SIGTERM, shutting down
+[2025-03-10T14:17:16.584Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:17:16.587Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:17:16.587Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:17:16.588Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:17:16.588Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:17:16.588Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:17:16.588Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:17:16.589Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:18:00.372Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:18:00.375Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:18:00.375Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:18:00.375Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:18:00.375Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:18:00.375Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:18:00.376Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:18:00.376Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:18:00.376Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:18:00.377Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:18:28.648Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:18:28.651Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:18:28.651Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:18:28.652Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:18:28.652Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:18:28.652Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:18:28.652Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:18:28.652Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:18:28.653Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:18:28.653Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:18:39.334Z] [INFO] [Main] Received SIGTERM, shutting down
+[2025-03-10T14:18:41.017Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:18:41.019Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:18:41.019Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:18:41.020Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:18:41.020Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:18:41.020Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:18:41.020Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:18:41.021Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:22:22.851Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:22:22.852Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:22.852Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:22.852Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:22.852Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:22.854Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:22:22.854Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:22:22.854Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:22:22.854Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:22:22.854Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:22:22.854Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:22:22.855Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:22:57.534Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:22:57.536Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:57.536Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:57.536Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:57.536Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:22:57.538Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:22:57.538Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:22:57.538Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:22:57.538Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:22:57.539Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:22:57.539Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:22:57.539Z] [ERROR] [WebSocketTransport] WebSocket server error
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:22:57.539Z] [ERROR] [RustMCPServer] MCP Server error:
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at Server.listen (node:net:2099:7)
+    at new WebSocketServer (/Users/max/Documents/Cline/MCP/rust-mcp-server/node_modules/ws/lib/websocket-server.js:102:20)
+    at RustMCPServer.start (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/mcp/sdk-server.js:158:34)
+    at main (file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:28:25)
+    at file:///Users/max/Documents/Cline/MCP/rust-mcp-server/dist/index.js:55:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[2025-03-10T14:22:57.540Z] [INFO] [StorageService] Loaded 0 analysis records from storage
+[2025-03-10T14:23:47.018Z] [INFO] [Main] Starting Rust MCP Server
+[2025-03-10T14:23:47.020Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:23:47.020Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:23:47.020Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:23:47.020Z] [INFO] [StorageService] Storage path resolved to: /Users/max/Documents/Cline/MCP/rust-mcp-server/data/storage.json
+[2025-03-10T14:23:47.021Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-10T14:23:47.022Z] [INFO] [RustMCPServer] WebSocket transport enabled on port 3000
+[2025-03-10T14:23:47.022Z] [INFO] [RustMCPServer] MCP Server started successfully
+[2025-03-10T14:23:47.022Z] [INFO] [Main] Rust MCP Server running on port 3000
+[2025-03-10T14:23:47.022Z] [INFO] [Main] WebSocket transport: enabled
+[2025-03-10T14:23:47.022Z] [INFO] [Main] Stdio transport: disabled
+[2025-03-10T14:23:47.023Z] [INFO] [StorageService] Loaded 0 analysis records from storage

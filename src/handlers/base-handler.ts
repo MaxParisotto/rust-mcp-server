@@ -75,40 +75,4 @@ export abstract class BaseHandler {
     }
   }
   
-  /**
-   * Validates that the required binary exists and is executable
-   * @param binaryPath - Path to the Rust binary
-   * @throws Error if binary doesn't exist or isn't executable
-   */
-  protected async validateBinary(binaryPath: string): Promise<void> {
-    // If no binary path is provided, log a warning but continue
-    // This allows the server to run in modes where analysis isn't needed
-    if (!binaryPath) {
-      this.logger.warn('Rust binary path is not configured. Analysis features will not be available.');
-      
-      // For autostart scenarios, we still want the server to run even if the binary is missing
-      if (process.env.NODE_ENV === 'production' || process.env.AUTOSTART === 'true') {
-        return;
-      }
-      
-      // In development, we want to fail early to catch issues
-      throw new Error('Rust binary path is not configured');
-    }
-    
-    // Check if the binary exists and is executable
-    try {
-      await fs.access(binaryPath, fs.constants.X_OK);
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Failed to access binary';
-      this.logger.warn(`Rust binary not accessible at ${binaryPath}: ${errorMessage}. Analysis features will not be available.`);
-      
-      // For autostart scenarios, we still want the server to run even if the binary is missing
-      if (process.env.NODE_ENV === 'production' || process.env.AUTOSTART === 'true') {
-        return;
-      }
-      
-      // In development, we want to fail early to catch issues
-      throw new Error(`Rust binary not accessible at ${binaryPath}: ${errorMessage}`);
-    }
-  }
 }

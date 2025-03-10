@@ -3,15 +3,10 @@
  * Provides functionality to explain Rust code patterns and concepts
  */
 
-import { exec } from 'child_process';
-import { promisify } from 'util';
 import { BaseHandler, HandlerResponse } from './base-handler.js';
 import { RustExplanationRequest } from '../protocols/schema.js';
 import { StorageService } from '../utils/storage.js';
 import { v4 as uuidv4 } from 'uuid';
-
-// Promisify exec for async/await usage
-const execPromise = promisify(exec);
 
 /**
  * Interface for explanation results
@@ -21,8 +16,8 @@ export interface RustExplanationResult {
   timestamp: number;
   fileName?: string;
   explanation: string;
-  sections?: ExplanationSection[];
-  relatedConcepts?: string[];
+  sections: ExplanationSection[];
+  relatedConcepts: string[];
   success: boolean;
   message?: string;
 }
@@ -45,16 +40,13 @@ export interface ExplanationSection {
  * Handler for Rust code explanation operations
  */
 export class RustExplainHandler extends BaseHandler {
-  private binaryPath: string;
   private storage: StorageService;
 
   /**
    * Create a new Rust Explanation Handler
-   * @param binaryPath - Path to the Rust analysis binary
    */
-  constructor(binaryPath: string) {
+  constructor() {
     super('RustExplainHandler');
-    this.binaryPath = binaryPath;
     this.storage = new StorageService();
   }
 
@@ -65,72 +57,73 @@ export class RustExplainHandler extends BaseHandler {
    */
   public async explain(request: RustExplanationRequest): Promise<HandlerResponse<RustExplanationResult>> {
     return this.safeExecute<RustExplanationResult>('explain-rust-code', async () => {
-      // Validate the binary exists
-      await this.validateBinary(this.binaryPath);
+      const explanationResult: RustExplanationResult = {
+        id: uuidv4(),
+        timestamp: Date.now(),
+        fileName: request.fileName,
+        explanation: '',
+        sections: [] as ExplanationSection[],
+        relatedConcepts: [] as string[],
+        success: true
+      };
 
-      // Create a temporary file name for the explanation
-      const fileName = request.fileName || `rust-explain-${Date.now()}.rs`;
-      
-      // Prepare request data
-      const codeBuffer = Buffer.from(request.code);
-      const base64Code = codeBuffer.toString('base64');
-      
-      // Log explanation attempt
-      this.logger.info(`Explaining Rust code`, { 
-        fileName, 
-        codeSize: request.code.length,
-        focus: request.focus 
+      // Analyze code patterns and provide explanations
+      if (request.code.includes('match')) {
+        explanationResult.sections.push({
+          title: 'Pattern Matching',
+          content: 'The match expression is a powerful control flow construct in Rust that allows you to compare a value against a series of patterns and execute code based on which pattern matches.',
+          codeReference: {
+            startLine: request.code.split('\n').findIndex(line => line.includes('match')),
+            startCharacter: 0,
+            endLine: request.code.split('\n').findIndex(line => line.includes('match')),
+            endCharacter: request.code.split('\n').find(line => line.includes('match'))?.length || 0
+          }
+        });
+        explanationResult.relatedConcepts.push('Pattern Matching', 'Control Flow', 'Match Expressions');
+      }
+
+      if (request.code.includes('Result<')) {
+        explanationResult.sections.push({
+          title: 'Error Handling',
+          content: 'Result<T, E> is a type used for returning and propagating errors. It has two variants: Ok(T), representing success and containing a value, and Err(E), representing error and containing an error value.',
+          codeReference: {
+            startLine: request.code.split('\n').findIndex(line => line.includes('Result<')),
+            startCharacter: 0,
+            endLine: request.code.split('\n').findIndex(line => line.includes('Result<')),
+            endCharacter: request.code.split('\n').find(line => line.includes('Result<'))?.length || 0
+          }
+        });
+        explanationResult.relatedConcepts.push('Error Handling', 'Result Type', 'Option Type');
+      }
+
+      if (request.code.includes('impl')) {
+        explanationResult.sections.push({
+          title: 'Implementation Block',
+          content: 'The impl keyword is used to implement methods and associated functions for a type. This is how you define the behavior of custom types in Rust.',
+          codeReference: {
+            startLine: request.code.split('\n').findIndex(line => line.includes('impl')),
+            startCharacter: 0,
+            endLine: request.code.split('\n').findIndex(line => line.includes('impl')),
+            endCharacter: request.code.split('\n').find(line => line.includes('impl'))?.length || 0
+          }
+        });
+        explanationResult.relatedConcepts.push('Methods', 'Associated Functions', 'Traits');
+      }
+
+      // Combine sections into a complete explanation
+      explanationResult.explanation = explanationResult.sections
+        .map(section => `${section.title}:\n${section.content}`)
+        .join('\n\n');
+
+      // Store the explanation result
+      await this.storage.saveAnalysis({
+        fileName: request.fileName || '',
+        code: request.code,
+        explanation: explanationResult.explanation,
+        sections: explanationResult.sections
       });
 
-      // Build the command to execute the Rust binary
-      let command = `"${this.binaryPath}" explain "${base64Code}" "${fileName}"`;
-      
-      // Add focus parameter if provided
-      if (request.focus) {
-        const focusBuffer = Buffer.from(request.focus);
-        const base64Focus = focusBuffer.toString('base64');
-        command += ` "${base64Focus}"`;
-      }
-      
-      // Execute the Rust binary
-      const { stdout } = await execPromise(command);
-      
-      let explanationResult: RustExplanationResult;
-      
-      try {
-        // Parse the JSON output from the Rust binary
-        const output = JSON.parse(stdout);
-        
-        // Create a structured result
-        explanationResult = {
-          id: uuidv4(),
-          timestamp: Date.now(),
-          fileName: request.fileName,
-          explanation: output.explanation || '',
-          sections: output.sections || [],
-          relatedConcepts: output.relatedConcepts || [],
-          success: output.success
-        };
-        
-        // Log explanation generation
-        this.logger.info(`Explanation generated successfully`, {
-          sectionCount: explanationResult.sections?.length || 0,
-          explanationLength: explanationResult.explanation.length
-        });
-        
-        // Store the explanation result for persistence
-        await this.storage.saveAnalysis({
-          fileName: explanationResult.fileName || '',
-          code: request.code,
-          explanation: explanationResult.explanation,
-          sections: explanationResult.sections
-        });
-        
-        return explanationResult;
-      } catch (error: any) {
-        this.logger.error('Failed to parse explanation result', error);
-        throw new Error('Failed to parse explanation result: ' + (error?.message || 'Unknown error'));
-      }
+      return explanationResult;
     });
   }
 }

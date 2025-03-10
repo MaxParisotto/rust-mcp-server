@@ -246,7 +246,6 @@ export class RustMCPServer {
   private server: MCPServer;
   private logger: Logger;
   private options: {
-    rustBinaryPath: string;
     enableStdio: boolean;
     enableWebSocket: boolean;
     port: number;
@@ -263,23 +262,21 @@ export class RustMCPServer {
    * @param options - Server configuration options
    */
   constructor(options: {
-    rustBinaryPath: string;
     enableStdio?: boolean;
     enableWebSocket?: boolean;
     port?: number;
   }) {
     this.logger = new Logger('MCPServer');
     this.options = {
-      rustBinaryPath: options.rustBinaryPath,
       enableStdio: options.enableStdio ?? false,
       enableWebSocket: options.enableWebSocket ?? true,
       port: options.port ?? 8743
     };
 
     // Initialize handlers
-    this.rustAnalyzeHandler = new RustAnalyzeHandler(this.options.rustBinaryPath);
-    this.rustSuggestHandler = new RustSuggestHandler(this.options.rustBinaryPath);
-    this.rustExplainHandler = new RustExplainHandler(this.options.rustBinaryPath);
+    this.rustAnalyzeHandler = new RustAnalyzeHandler();
+    this.rustSuggestHandler = new RustSuggestHandler();
+    this.rustExplainHandler = new RustExplainHandler();
     this.historyHandler = new HistoryHandler();
 
     // Create MCP server
@@ -312,11 +309,7 @@ export class RustMCPServer {
         // Process the request
         const result = await this.rustAnalyzeHandler.analyze(validatedInput);
         
-        if (!result.success) {
-          throw new Error(result.error?.message || 'Unknown error');
-        }
-        
-        return result.data;
+        return result;
       }
     });
 

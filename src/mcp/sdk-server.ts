@@ -33,7 +33,6 @@ export class RustMCPServer {
   private server: Server;
   private logger: Logger;
   private options: {
-    rustBinaryPath: string;
     enableStdio: boolean;
     enableWebSocket: boolean;
     port: number;
@@ -46,23 +45,21 @@ export class RustMCPServer {
   private historyHandler: HistoryHandler;
 
   constructor(options: {
-    rustBinaryPath: string;
     enableStdio?: boolean;
     enableWebSocket?: boolean;
     port?: number;
   }) {
     this.logger = new Logger('RustMCPServer');
     this.options = {
-      rustBinaryPath: options.rustBinaryPath,
       enableStdio: options.enableStdio ?? false,
       enableWebSocket: options.enableWebSocket ?? true,
       port: options.port ?? 8743
     };
 
     // Initialize handlers
-    this.rustAnalyzeHandler = new RustAnalyzeHandler(this.options.rustBinaryPath);
-    this.rustSuggestHandler = new RustSuggestHandler(this.options.rustBinaryPath);
-    this.rustExplainHandler = new RustExplainHandler(this.options.rustBinaryPath);
+    this.rustAnalyzeHandler = new RustAnalyzeHandler();
+    this.rustSuggestHandler = new RustSuggestHandler();
+    this.rustExplainHandler = new RustExplainHandler();
     this.historyHandler = new HistoryHandler();
 
     // Create MCP server using the SDK
@@ -114,14 +111,11 @@ export class RustMCPServer {
         case RUST_ANALYZE_TOOL.name: {
           const validatedInput = await RustAnalysisRequestSchema.parseAsync(request.params.arguments);
           const result = await this.rustAnalyzeHandler.analyze(validatedInput);
-          if (!result.success) {
-            throw new McpError(ErrorCode.InternalError, result.error?.message || 'Analysis failed');
-          }
           return {
             content: [
               {
                 type: 'text',
-                text: JSON.stringify(result.data, null, 2)
+                text: JSON.stringify(result, null, 2)
               }
             ]
           };

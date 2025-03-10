@@ -20,9 +20,6 @@ const enableWebSocket = (!args.includes('--no-websocket') && !args.includes('-n'
 const portArg = args.find(arg => arg.startsWith('--port=') || arg.startsWith('-p='));
 const port = portArg ? parseInt(portArg.split('=')[1], 10) : 3000;
 
-// Get Rust binary path from environment or use empty string
-const rustBinaryPath = process.env.RUST_BINARY_PATH || '';
-
 // Create and start the MCP server
 async function main() {
   try {
@@ -30,7 +27,6 @@ async function main() {
     
     // Create the MCP server
     const mcpServer = new RustMCPServer({
-      rustBinaryPath,
       enableStdio,
       enableWebSocket,
       port
