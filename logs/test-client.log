@@ -1,0 +1,536 @@
+[2025-03-10T11:59:34.595Z] Starting test client...
+[2025-03-10T11:59:34.601Z] Sending initialization message...
+[2025-03-10T11:59:34.682Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "serverInfo": {
+      "name": "rust-mcp-server",
+      "version": "1.0.0"
+    },
+    "capabilities": {
+      "tools": [
+        {
+          "name": "rust.analyze",
+          "description": "Analyzes Rust code for errors and warnings"
+        },
+        {
+          "name": "rust.suggest",
+          "description": "Suggests improvements for Rust code"
+        },
+        {
+          "name": "rust.explain",
+          "description": "Explains Rust code patterns and concepts"
+        },
+        {
+          "name": "rust.history",
+          "description": "Retrieves history of previous analyses"
+        }
+      ]
+    }
+  }
+}
+[2025-03-10T11:59:35.607Z] Sending tools/list message...
+[2025-03-10T11:59:35.645Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "rust.analyze",
+        "description": "Analyzes Rust code for errors and warnings",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to analyze"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.suggest",
+        "description": "Suggests improvements for Rust code",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to improve"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.explain",
+        "description": "Explains Rust code patterns and concepts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to explain"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.history",
+        "description": "Retrieves history of previous analyses",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of history entries to retrieve"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T11:59:36.603Z] Sending rust.analyze message...
+[2025-03-10T11:59:36.604Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "diagnostics": [
+      {
+        "message": "expected `;`, found `}`",
+        "severity": "error",
+        "position": {
+          "startLine": 3,
+          "startCharacter": 4,
+          "endLine": 3,
+          "endCharacter": 31
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T11:59:39.603Z] Test complete. Exiting...
+[2025-03-10T12:02:52.756Z] Starting test client...
+[2025-03-10T12:02:52.762Z] Sending initialization message...
+[2025-03-10T12:02:52.840Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "serverInfo": {
+      "name": "rust-mcp-server",
+      "version": "1.0.0"
+    },
+    "capabilities": {
+      "tools": [
+        {
+          "name": "rust.analyze",
+          "description": "Analyzes Rust code for errors and warnings"
+        },
+        {
+          "name": "rust.suggest",
+          "description": "Suggests improvements for Rust code"
+        },
+        {
+          "name": "rust.explain",
+          "description": "Explains Rust code patterns and concepts"
+        },
+        {
+          "name": "rust.history",
+          "description": "Retrieves history of previous analyses"
+        }
+      ]
+    }
+  }
+}
+[2025-03-10T12:02:53.764Z] Sending tools/list message...
+[2025-03-10T12:02:53.765Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "rust.analyze",
+        "description": "Analyzes Rust code for errors and warnings",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to analyze"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.suggest",
+        "description": "Suggests improvements for Rust code",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to improve"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.explain",
+        "description": "Explains Rust code patterns and concepts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to explain"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.history",
+        "description": "Retrieves history of previous analyses",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of history entries to retrieve"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:02:54.764Z] Sending rust.analyze message...
+[2025-03-10T12:02:54.765Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "diagnostics": [
+      {
+        "message": "expected `;`, found `}`",
+        "severity": "error",
+        "position": {
+          "startLine": 3,
+          "startCharacter": 4,
+          "endLine": 3,
+          "endCharacter": 31
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:02:57.764Z] Test complete. Exiting...
+[2025-03-10T12:07:47.099Z] Starting test client...
+[2025-03-10T12:07:47.105Z] Sending initialization message...
+[2025-03-10T12:07:47.189Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "serverInfo": {
+      "name": "rust-mcp-server",
+      "version": "1.0.0"
+    },
+    "capabilities": {
+      "tools": [
+        {
+          "name": "rust.analyze",
+          "description": "Analyzes Rust code for errors and warnings"
+        },
+        {
+          "name": "rust.suggest",
+          "description": "Suggests improvements for Rust code"
+        },
+        {
+          "name": "rust.explain",
+          "description": "Explains Rust code patterns and concepts"
+        },
+        {
+          "name": "rust.history",
+          "description": "Retrieves history of previous analyses"
+        }
+      ]
+    }
+  }
+}
+[2025-03-10T12:07:48.105Z] Sending tools/list message...
+[2025-03-10T12:07:48.106Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "rust.analyze",
+        "description": "Analyzes Rust code for errors and warnings",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to analyze"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.suggest",
+        "description": "Suggests improvements for Rust code",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to improve"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.explain",
+        "description": "Explains Rust code patterns and concepts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to explain"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.history",
+        "description": "Retrieves history of previous analyses",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of history entries to retrieve"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:07:49.106Z] Sending rust.analyze message...
+[2025-03-10T12:07:49.107Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "diagnostics": [
+      {
+        "message": "expected `;`, found `}`",
+        "severity": "error",
+        "position": {
+          "startLine": 3,
+          "startCharacter": 4,
+          "endLine": 3,
+          "endCharacter": 31
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:07:52.107Z] Test complete. Exiting...
+[2025-03-10T12:33:42.992Z] Starting test client...
+[2025-03-10T12:33:42.999Z] Sending initialization message...
+[2025-03-10T12:33:43.079Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "serverInfo": {
+      "name": "rust-mcp-server",
+      "version": "1.0.0"
+    },
+    "capabilities": {
+      "tools": [
+        {
+          "name": "rust.analyze",
+          "description": "Analyzes Rust code for errors and warnings"
+        },
+        {
+          "name": "rust.suggest",
+          "description": "Suggests improvements for Rust code"
+        },
+        {
+          "name": "rust.explain",
+          "description": "Explains Rust code patterns and concepts"
+        },
+        {
+          "name": "rust.history",
+          "description": "Retrieves history of previous analyses"
+        }
+      ]
+    }
+  }
+}
+[2025-03-10T12:33:44.000Z] Sending tools/list message...
+[2025-03-10T12:33:44.001Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "rust.analyze",
+        "description": "Analyzes Rust code for errors and warnings",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to analyze"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.suggest",
+        "description": "Suggests improvements for Rust code",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to improve"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.explain",
+        "description": "Explains Rust code patterns and concepts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to explain"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.history",
+        "description": "Retrieves history of previous analyses",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of history entries to retrieve"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:33:45.051Z] Sending rust.analyze message...
+[2025-03-10T12:33:45.070Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "diagnostics": [
+      {
+        "message": "expected `;`, found `}`",
+        "severity": "error",
+        "position": {
+          "startLine": 3,
+          "startCharacter": 4,
+          "endLine": 3,
+          "endCharacter": 31
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:33:48.000Z] Test complete. Exiting...

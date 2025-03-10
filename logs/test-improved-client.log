@@ -1,0 +1,150 @@
+[2025-03-10T12:46:13.210Z] Starting test client for improved server...
+[2025-03-10T12:46:13.216Z] Sending initialization message...
+[2025-03-10T12:46:13.302Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "serverInfo": {
+      "name": "rust-mcp-server",
+      "version": "1.0.0"
+    },
+    "capabilities": {
+      "tools": [
+        {
+          "name": "rust.analyze",
+          "description": "Analyzes Rust code for errors and warnings"
+        },
+        {
+          "name": "rust.suggest",
+          "description": "Suggests improvements for Rust code"
+        },
+        {
+          "name": "rust.explain",
+          "description": "Explains Rust code patterns and concepts"
+        },
+        {
+          "name": "rust.history",
+          "description": "Retrieves history of previous analyses"
+        }
+      ]
+    }
+  }
+}
+[2025-03-10T12:46:14.217Z] Sending tools/list message...
+[2025-03-10T12:46:14.218Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "rust.analyze",
+        "description": "Analyzes Rust code for errors and warnings",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to analyze"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.suggest",
+        "description": "Suggests improvements for Rust code",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to improve"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.explain",
+        "description": "Explains Rust code patterns and concepts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The Rust code to explain"
+            },
+            "fileName": {
+              "type": "string",
+              "description": "The name of the source file"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "rust.history",
+        "description": "Retrieves history of previous analyses",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of history entries to retrieve"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:46:15.216Z] Sending rust.analyze message (with missing semicolon)...
+[2025-03-10T12:46:15.218Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "diagnostics": [
+      {
+        "message": "expected `;`, found `}`",
+        "severity": "error",
+        "position": {
+          "startLine": 3,
+          "startCharacter": 4,
+          "endLine": 3,
+          "endCharacter": 31
+        }
+      }
+    ]
+  }
+}
+[2025-03-10T12:46:16.215Z] Sending rust.analyze message (with correct code)...
+[2025-03-10T12:46:16.216Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 4,
+  "result": {
+    "diagnostics": []
+  }
+}
+[2025-03-10T12:46:17.216Z] Sending rust.explain message...
+[2025-03-10T12:46:17.217Z] Server response: {
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "explanation": "This Rust code defines a main function that prints \"Hello, world!\" to the console. The main function is the entry point of a Rust program. The println! macro is used to print text to the standard output."
+  }
+}
+[2025-03-10T12:46:19.216Z] Test complete. Exiting...
