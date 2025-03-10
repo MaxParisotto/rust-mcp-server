@@ -5,7 +5,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { Logger } from './logger.js';
+import { Logger } from './logger';
 
 // Default storage path
 const STORAGE_PATH = path.join(process.cwd(), 'data', 'storage.json');
@@ -187,4 +187,4 @@ export class StorageService {
     await this.saveData();
     this.logger.info('Cleared all analyses from storage');
   }
-} 
+}

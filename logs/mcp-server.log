@@ -1,0 +1,33 @@
+[2025-03-09T22:16:11.907Z] [INFO] [Main] Current working directory: /Users/max/Documents/Cline/MCP/rust-mcp-server
+[2025-03-09T22:16:11.909Z] [INFO] [Main] Starting MCP Server
+{ port: 8743, enableStdio: false }
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered tool: rust.analyze
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered tool: rust.suggest
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered tool: rust.explain
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered tool: rust.history
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered resource: Rust Common Errors
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered resource: Rust Best Practices
+[2025-03-09T22:16:11.910Z] [INFO] [MCPServer] Registered resource: Rust Lifetime Reference
+[2025-03-09T22:16:11.911Z] [INFO] [MCPServer] Added transport
+[2025-03-09T22:16:11.911Z] [INFO] [MCPServer] WebSocket transport enabled on port 8743
+[2025-03-09T22:16:11.911Z] [INFO] [MCPServer] Starting MCP server
+[2025-03-09T22:16:11.911Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-09T22:16:11.911Z] [INFO] [MCPServer] MCP server started
+[2025-03-09T22:16:11.911Z] [INFO] [MCPServer] MCP Server started successfully
+[2025-03-09T22:19:28.555Z] [INFO] [Main] Received SIGINT signal, shutting down...
+[2025-03-09T22:20:02.985Z] [INFO] [Main] Current working directory: /Users/max/Documents/Cline/MCP/rust-mcp-server
+[2025-03-09T22:20:02.987Z] [INFO] [Main] Starting MCP Server
+{ port: 8743, enableStdio: false }
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered tool: rust.analyze
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered tool: rust.suggest
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered tool: rust.explain
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered tool: rust.history
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered resource: Rust Common Errors
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered resource: Rust Best Practices
+[2025-03-09T22:20:02.987Z] [INFO] [MCPServer] Registered resource: Rust Lifetime Reference
+[2025-03-09T22:20:02.988Z] [INFO] [MCPServer] Added transport
+[2025-03-09T22:20:02.988Z] [INFO] [MCPServer] WebSocket transport enabled on port 8743
+[2025-03-09T22:20:02.988Z] [INFO] [MCPServer] Starting MCP server
+[2025-03-09T22:20:02.988Z] [INFO] [WebSocketTransport] Starting WebSocket transport
+[2025-03-09T22:20:02.988Z] [INFO] [MCPServer] MCP server started
+[2025-03-09T22:20:02.988Z] [INFO] [MCPServer] MCP Server started successfully

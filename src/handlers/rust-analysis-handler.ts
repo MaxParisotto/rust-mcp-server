@@ -1,4 +1,4 @@
-import { BaseHandler, HandlerResponse } from './base-handler.ts';
+import { BaseHandler, HandlerResponse } from './base-handler';
 import {
   RustAnalysisRequest,
   RustAnalysisResult,
@@ -6,12 +6,15 @@ import {
   RustExplanationResult,
   RustSuggestionRequest,
   RustSuggestionResult
-} from '../protocols/schema.ts';
+} from '../protocols/schema';
 
 export class RustAnalysisHandler extends BaseHandler {
-  constructor(binaryPath: string) {
+  constructor(private binaryPath: string) {
     super('RustAnalysisHandler');
-    this.validateBinary(binaryPath);
+  }
+
+  async initialize(): Promise<void> {
+    await this.validateBinary(this.binaryPath);
   }
 
   public async analyze(request: RustAnalysisRequest): Promise<HandlerResponse<RustAnalysisResult>> {

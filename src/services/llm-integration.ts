@@ -1,3 +1,5 @@
+import { Logger } from '../utils/logger';
+
 interface LLMRequest {
     prompt: string;
     parameters?: {
@@ -11,10 +13,12 @@ interface LLMRequest {
   }
   
   export class LLMIntegrationService {
+    private logger = new Logger('LLMIntegrationService');
+
     private async callLLM(request: LLMRequest): Promise<LLMResponse> {
+      this.logger.debug('Calling LLM with prompt:', request.prompt);
       // Implementation depends on which LLM API you want to use
       // This is a placeholder
-      console.log('Calling LLM with prompt:', request.prompt);
       return {
         text: `LLM response for: ${request.prompt.substring(0, 20)}...`
       };

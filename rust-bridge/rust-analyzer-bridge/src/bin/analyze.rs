@@ -1,4 +1,4 @@
-use rust_analyzer_bridge::analysis::AnalysisRequest;
+use rust_analyzer_bridge::{AnalysisRequest, AnalysisResponse, analyze_code};
 use std::io::{self, Read};
 use serde_json::{from_str, to_string};
 use std::fs;
@@ -20,7 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Load config if provided
     if let Some(config_path) = args.config {
         let config = fs::read_to_string(config_path)?;
-        rust_analyzer_bridge::analysis::set_config(config)?;
+        rust_analyzer_bridge::set_config(config)?;
     }
 
     // Read input from stdin
@@ -31,7 +31,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let request: AnalysisRequest = from_str(&buffer)?;
 
     // Analyze the code
-    let response = match rust_analyzer_bridge::analysis::analyze_code(request).await {
+    let response = match rust_analyzer_bridge::analyze_code(request).await {
         Ok(result) => result,
         Err(err) => {
             // Return error in a structured format

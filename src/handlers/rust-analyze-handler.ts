@@ -6,9 +6,9 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import * as path from 'path';
-import { BaseHandler, HandlerResponse } from './base-handler.ts';
-import { RustAnalysisRequest } from '../protocols/schema.ts';
-import { StorageService } from '../utils/storage.ts';
+import { BaseHandler, HandlerResponse } from './base-handler';
+import { RustAnalysisRequest } from '../protocols/schema';
+import { StorageService } from '../utils/storage';
 import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
 

@@ -4,7 +4,7 @@
  */
 
 import { WebSocketServer, WebSocket } from 'ws';
-import { Logger } from '../utils/logger.js';
+import { Logger } from '../utils/logger';
 
 /**
  * WebSocket transport for MCP server
@@ -39,7 +39,7 @@ export class WebSocketServerTransport {
       this.logger.info('Client connected');
       this.clients.add(ws);
       
-      ws.on('message', (data: WebSocket.Data) => {
+      ws.on('message', (data: string) => {
         try {
           const message = JSON.parse(data.toString());
           this.logger.debug('Received message', message);
@@ -89,7 +89,7 @@ export class WebSocketServerTransport {
     
     const promises = Array.from(this.clients).map(client => {
       return new Promise<void>((resolve, reject) => {
-        if (client.readyState === WebSocket.OPEN) {
+        if (client.readyState === 1) { // 1 = OPEN state
           client.send(serialized, (error) => {
             if (error) {
               this.logger.error('Error sending message', error);
@@ -130,4 +130,4 @@ export class WebSocketServerTransport {
       });
     });
   }
-} 
+}

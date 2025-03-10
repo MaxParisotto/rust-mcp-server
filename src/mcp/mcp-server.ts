@@ -4,12 +4,12 @@
  */
 
 import { WebSocketServer } from 'ws';
-import { WebSocketServerTransport } from './websocket-transport.ts';
-import { Logger } from '../utils/logger.ts';
-import { HistoryHandler } from '../handlers/history-handler.ts';
-import { RustAnalyzeHandler } from '../handlers/rust-analyze-handler.ts';
-import { RustSuggestHandler } from '../handlers/rust-suggest-handler.ts';
-import { RustExplainHandler } from '../handlers/rust-explain-handler.ts';
+import { WebSocketServerTransport } from './websocket-transport';
+import { Logger } from '../utils/logger';
+import { HistoryHandler } from '../handlers/history-handler';
+import { RustAnalyzeHandler } from '../handlers/rust-analyze-handler';
+import { RustSuggestHandler } from '../handlers/rust-suggest-handler';
+import { RustExplainHandler } from '../handlers/rust-explain-handler';
 import { 
   getMCPSchema, 
   RustAnalysisRequestSchema, 
@@ -23,7 +23,7 @@ import {
   RUST_COMMON_ERRORS_RESOURCE,
   RUST_BEST_PRACTICES_RESOURCE,
   RUST_LIFETIME_REFERENCE_RESOURCE
-} from '../protocols/schema.ts';
+} from '../protocols/schema';
 
 /**
  * Simple implementation of an MCP Server

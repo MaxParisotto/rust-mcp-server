@@ -3,7 +3,8 @@
  * Provides common functionality for all handlers including logging and error handling
  */
 
-import { Logger } from '../utils/logger.ts';
+import { Logger } from '../utils/logger';
+import { promises as fs } from 'fs';
 
 export interface HandlerResponse<T> {
   success: boolean;
@@ -79,7 +80,7 @@ export abstract class BaseHandler {
    * @param binaryPath - Path to the Rust binary
    * @throws Error if binary doesn't exist or isn't executable
    */
-  protected validateBinary(binaryPath: string): void {
+  protected async validateBinary(binaryPath: string): Promise<void> {
     // If no binary path is provided, log a warning but continue
     // This allows the server to run in modes where analysis isn't needed
     if (!binaryPath) {
@@ -94,10 +95,12 @@ export abstract class BaseHandler {
       throw new Error('Rust binary path is not configured');
     }
     
-    // Check if the binary exists
-    const fs = require('fs');
-    if (!fs.existsSync(binaryPath)) {
-      this.logger.warn(`Rust binary not found at ${binaryPath}. Analysis features will not be available.`);
+    // Check if the binary exists and is executable
+    try {
+      await fs.access(binaryPath, fs.constants.X_OK);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to access binary';
+      this.logger.warn(`Rust binary not accessible at ${binaryPath}: ${errorMessage}. Analysis features will not be available.`);
       
       // For autostart scenarios, we still want the server to run even if the binary is missing
       if (process.env.NODE_ENV === 'production' || process.env.AUTOSTART === 'true') {
@@ -105,7 +108,7 @@ export abstract class BaseHandler {
       }
       
       // In development, we want to fail early to catch issues
-      throw new Error(`Rust binary not found at ${binaryPath}`);
+      throw new Error(`Rust binary not accessible at ${binaryPath}: ${errorMessage}`);
     }
   }
 }

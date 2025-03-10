@@ -2,9 +2,10 @@
  * Bridge to the Rust binary for code analysis
  */
 
-import { RustAnalysisRequest, RustAnalysisResponse, Diagnostic, Suggestion } from '../protocols/mcp.js';
+import { RustAnalysisRequest, RustAnalysisResponse, Diagnostic, Suggestion } from '../protocols/mcp';
 import { spawn } from 'child_process';
 import fs from 'fs';
+import path from 'path';
 
 /**
  * Rust Bridge to interface with the Rust analysis binary
@@ -17,7 +18,10 @@ export class RustBridge {
    * @param binaryPath - Path to the Rust binary
    */
   constructor(binaryPath?: string) {
-    this.binaryPath = binaryPath || '';
+    this.binaryPath = binaryPath || path.join(
+      __dirname,
+      '../../rust-bridge/target/release/librust_analyzer_bridge.dylib'
+    );
   }
 
   /**

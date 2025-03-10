@@ -5,9 +5,9 @@
 
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { BaseHandler, HandlerResponse } from './base-handler.ts';
-import { RustExplanationRequest } from '../protocols/schema.ts';
-import { StorageService } from '../utils/storage.ts';
+import { BaseHandler, HandlerResponse } from './base-handler';
+import { RustExplanationRequest } from '../protocols/schema';
+import { StorageService } from '../utils/storage';
 import { v4 as uuidv4 } from 'uuid';
 
 // Promisify exec for async/await usage
@@ -66,7 +66,7 @@ export class RustExplainHandler extends BaseHandler {
   public async explain(request: RustExplanationRequest): Promise<HandlerResponse<RustExplanationResult>> {
     return this.safeExecute<RustExplanationResult>('explain-rust-code', async () => {
       // Validate the binary exists
-      this.validateBinary(this.binaryPath);
+      await this.validateBinary(this.binaryPath);
 
       // Create a temporary file name for the explanation
       const fileName = request.fileName || `rust-explain-${Date.now()}.rs`;

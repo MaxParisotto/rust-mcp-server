@@ -5,8 +5,8 @@
 
 import path from 'path';
 import fs from 'fs';
-import { Logger, LogLevel } from './utils/logger.js';
-import { RustMCPServer as MCPServer } from './mcp/mcp-server.js';
+import { Logger, LogLevel } from './utils/logger';
+import { RustMCPServer as MCPServer } from './mcp/mcp-server';
 
 // Initialize with console-only logging first, to catch any errors during startup
 const logger = new Logger('Main');

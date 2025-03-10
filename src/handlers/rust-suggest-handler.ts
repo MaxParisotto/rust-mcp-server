@@ -5,9 +5,9 @@
 
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { BaseHandler, HandlerResponse } from './base-handler.ts';
-import { RustSuggestionRequest } from '../protocols/schema.ts';
-import { StorageService } from '../utils/storage.ts';
+import { BaseHandler, HandlerResponse } from './base-handler';
+import { RustSuggestionRequest } from '../protocols/schema';
+import { StorageService } from '../utils/storage';
 import { v4 as uuidv4 } from 'uuid';
 
 // Promisify exec for async/await usage
@@ -69,7 +69,7 @@ export class RustSuggestHandler extends BaseHandler {
   public async suggest(request: RustSuggestionRequest): Promise<HandlerResponse<RustSuggestionResult>> {
     return this.safeExecute<RustSuggestionResult>('suggest-rust-improvements', async () => {
       // Validate the binary exists
-      this.validateBinary(this.binaryPath);
+      await this.validateBinary(this.binaryPath);
 
       // Create a temporary file name for the suggestion
       const fileName = request.fileName || `rust-suggest-${Date.now()}.rs`;
