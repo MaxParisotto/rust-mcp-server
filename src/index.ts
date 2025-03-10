@@ -1,55 +1,71 @@
-import express from 'express';
-import http from 'http';
-import { WebSocketServer } from 'ws';
-import { MCPProtocolHandler } from './protocols/mcp.js';
-import { Logger as LoggerClass } from './utils/logger.js';
-const logger = new LoggerClass('Server');
+#!/usr/bin/env node
 
-const app = express();
-
-const server = http.createServer(app);
-const wss = new WebSocketServer({ server });
-
-const protocolHandler = new MCPProtocolHandler();
+import { RustMCPServer } from './mcp/mcp-server.js';
+import { Logger } from './utils/logger.js';
 
 // Initialize logger
-LoggerClass.configure({
+Logger.configure({
   useFile: true,
   logDir: 'logs',
 });
 
-wss.on('connection', (ws) => {
-    logger.info('Client connected');
+const logger = new Logger('Main');
 
-    ws.on('message', async (message) => {
-        try {
-            const mcpMessage = JSON.parse(message.toString());
-            const response = await protocolHandler.handleMessage(mcpMessage);
-            ws.send(JSON.stringify(response));
-        } catch (err: unknown) {
-    let errorMessage = 'Unknown error';
-    if (err instanceof Error) {
-        logger.error('Error handling message', err);
-        errorMessage = err.message;
-    } else {
-        logger.error('Unknown error type:', { errorDetails: String(err) });
-    }
+// Process command line arguments
+const args = process.argv.slice(2);
+const enableStdio = args.includes('--stdio') || args.includes('-s');
+const enableWebSocket = !args.includes('--no-websocket') && !args.includes('-n');
+const portArg = args.find(arg => arg.startsWith('--port=') || arg.startsWith('-p='));
+const port = portArg ? parseInt(portArg.split('=')[1], 10) : 3000;
 
-    ws.send(JSON.stringify({
-        type: 'error',
-        data: { message: errorMessage }
-    }));
-        }
+// Get Rust binary path from environment or use empty string
+const rustBinaryPath = process.env.RUST_BINARY_PATH || '';
+
+// Create and start the MCP server
+async function main() {
+  try {
+    logger.info('Starting Rust MCP Server');
+    
+    // Create the MCP server
+    const mcpServer = new RustMCPServer({
+      rustBinaryPath,
+      enableStdio,
+      enableWebSocket,
+      port
     });
-ws.on('close', () => {
-    logger.info('Client disconnected');
-});
+    
+    // Start the server
+    await mcpServer.start();
+    
+    // Save the process ID to a file for management scripts
+    const fs = await import('fs');
+    fs.writeFileSync('.server.pid', process.pid.toString());
+    
+    // Handle process termination
+    process.on('SIGINT', async () => {
+      logger.info('Received SIGINT, shutting down');
+      await mcpServer.stop();
+      process.exit(0);
+    });
+    
+    process.on('SIGTERM', async () => {
+      logger.info('Received SIGTERM, shutting down');
+      await mcpServer.stop();
+      process.exit(0);
+    });
+    
+    logger.info(`Rust MCP Server running on port ${port}`);
+    logger.info(`WebSocket transport: ${enableWebSocket ? 'enabled' : 'disabled'}`);
+    logger.info(`Stdio transport: ${enableStdio ? 'enabled' : 'disabled'}`);
+    
+  } catch (error) {
+    logger.error('Failed to start server', error);
+    process.exit(1);
+  }
+}
 
-});
-
-app.use(express.static('public'));
-
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    logger.info(`Rust MCP Server listening on port ${PORT}`);
+// Run the main function
+main().catch(error => {
+  console.error('Unhandled error:', error);
+  process.exit(1);
 });

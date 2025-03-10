@@ -327,4 +327,4 @@ export class Logger {
     }
     Logger.fileHandles.clear();
   }
-} 
+}
