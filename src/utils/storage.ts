@@ -4,6 +4,7 @@
  */
 
 import * as path from 'path';
+import * as fs from 'fs';
 import { Logger } from './logger.js';
 import knex, { Knex } from 'knex';
 
@@ -64,6 +65,10 @@ export class StorageService {
     try {
       // Create directory if it doesn't exist
       const dirname = path.dirname(this.db.client.config.connection.filename);
+      if (!fs.existsSync(dirname)) {
+        fs.mkdirSync(dirname, { recursive: true });
+        this.logger.info(`Created directory: ${dirname}`);
+      }
       await this.db.raw(`PRAGMA journal_mode=WAL`);
 
       // Run migrations
